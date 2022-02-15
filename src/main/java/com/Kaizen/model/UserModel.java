@@ -39,14 +39,13 @@ public class UserModel implements UserDetails {
     @Column(name = "enabled")
     private Boolean enabled;
 
-    public UserModel(String name, String username, String email, String password, UserRole role, Boolean locked, Boolean enabled) {
+    public UserModel(String name, String username, String email, String password, UserRole role) {
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
         this.role = role;
-        this.locked = locked;
-        this.enabled = enabled;
+
     }
 
     @Override
