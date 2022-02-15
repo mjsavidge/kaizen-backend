@@ -35,9 +35,9 @@ public class UserModel implements UserDetails {
     @Enumerated(EnumType.STRING)
     private UserRole role;
     @Column(name = "locked")
-    private Boolean locked;
+    private Boolean locked = false;
     @Column(name = "enabled")
-    private Boolean enabled;
+    private Boolean enabled= false;
 
     public UserModel(String name, String username, String email, String password, UserRole role) {
         this.name = name;
