@@ -1,4 +1,4 @@
-package com.Kaizen.validation;
+package com.kaizen.validation;
 
 import org.springframework.stereotype.Service;
 

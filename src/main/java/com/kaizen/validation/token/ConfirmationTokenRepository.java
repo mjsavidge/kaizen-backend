@@ -1,4 +1,4 @@
-package com.Kaizen.validation.token;
+package com.kaizen.validation.token;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -16,6 +16,6 @@ public interface ConfirmationTokenRepository extends JpaRepository<ConfirmationT
 
     @Transactional
     @Modifying
-    @Query("UPDATE ConfirmationToken c " + "SET c.confirmedAT = ?2 " + "WHERE c.token = ?1")
+    @Query("UPDATE confirmation_token c " + "SET c.confirmedAT = ?2 " + "WHERE c.token = ?1")
     int updateConfirmedAt(String token, LocalDateTime confirmed);
 }

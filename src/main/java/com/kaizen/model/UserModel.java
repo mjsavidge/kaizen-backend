@@ -1,4 +1,4 @@
-package com.Kaizen.model;
+package com.kaizen.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -16,7 +16,7 @@ import java.util.Collections;
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
-@Entity
+@Entity(name = "users")
 @Table(name = "users")
 public class UserModel implements UserDetails {
 

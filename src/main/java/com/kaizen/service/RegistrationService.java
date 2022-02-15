@@ -1,25 +1,30 @@
-package com.Kaizen.service;
+package com.kaizen.service;
 
-import com.Kaizen.model.RegistrationModel;
-import com.Kaizen.model.UserModel;
-import com.Kaizen.model.UserRole;
-import com.Kaizen.validation.EmailValidation;
-import com.Kaizen.validation.token.ConfirmationToken;
-import com.Kaizen.validation.token.ConfirmationTokenService;
+import com.kaizen.model.RegistrationModel;
+import com.kaizen.model.UserModel;
+import com.kaizen.model.UserRole;
+import com.kaizen.validation.EmailValidation;
+import com.kaizen.validation.token.ConfirmationToken;
+import com.kaizen.validation.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+
 import java.time.LocalDateTime;
 
 @Service
 @AllArgsConstructor
 public class RegistrationService {
 
+    @Autowired
     private final UserService userService;
+    @Autowired
     private final EmailValidation emailValidation;
+    @Autowired
     private final ConfirmationTokenService confirmationTokenService;
-    private final ConfirmationToken confirmationToken;
+
 
     public String register(RegistrationModel request){
         boolean isValidEmail = emailValidation.test(request.getEmail());
@@ -35,6 +40,8 @@ public class RegistrationService {
                         UserRole.USER
                 )
         );
+
+
     }
 
     @Transactional

@@ -1,4 +1,4 @@
-package com.Kaizen.model;
+package com.kaizen.model;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

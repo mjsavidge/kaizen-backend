@@ -1,6 +1,6 @@
-package com.Kaizen.validation.token;
+package com.kaizen.validation.token;
 
-import com.Kaizen.model.UserModel;
+import com.kaizen.model.UserModel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity
+@Entity(name = "confirmation_token")
 @Table(name = "confirmation_token")
 public class ConfirmationToken {
 
@@ -35,7 +35,6 @@ public class ConfirmationToken {
         this.token = token;
         this.createdAt = createdAt;
         this.expiresAt = expiresAt;
-        this.confirmedAt = confirmedAt;
         this.userModel = userModel;
     }
 }

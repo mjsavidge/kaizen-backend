@@ -1,4 +1,4 @@
-package com.Kaizen.model;
+package com.kaizen.model;
 
 public enum UserRole {
     USER,

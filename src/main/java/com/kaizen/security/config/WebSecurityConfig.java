@@ -1,4 +1,4 @@
-package com.Kaizen.security.config;
+package com.kaizen.security.config;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import com.Kaizen.service.UserService;
+import com.kaizen.service.UserService;
 
 @Configuration
 @AllArgsConstructor

@@ -1,15 +1,16 @@
-package com.Kaizen.service;
+package com.kaizen.service;
 
-import com.Kaizen.model.UserModel;
-import com.Kaizen.validation.token.ConfirmationToken;
-import com.Kaizen.validation.token.ConfirmationTokenService;
+import com.kaizen.model.UserModel;
+import com.kaizen.validation.token.ConfirmationToken;
+import com.kaizen.validation.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.Kaizen.repository.UserRepository;
+import com.kaizen.repository.UserRepository;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -17,10 +18,14 @@ import java.util.UUID;
 @Service
 @AllArgsConstructor
 public class UserService implements UserDetailsService {
-    private final static String USER_NOT_FOUND_MSG = "user with email %s was not found";
-    private final UserRepository userRepository;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    private final static String USER_NOT_FOUND_MSG = "user with email %s was not found";
+
+    @Autowired
+    private final UserRepository userRepository;
+    @Autowired
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
     private final ConfirmationTokenService confirmationTokenService;
 
     @Override

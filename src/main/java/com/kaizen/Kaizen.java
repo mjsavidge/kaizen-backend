@@ -1,13 +1,13 @@
-package com.Kaizen;
+package com.kaizen;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BackendApplication {
+public class Kaizen {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackendApplication.class, args);
+		SpringApplication.run(Kaizen.class, args);
 	}
 
 }

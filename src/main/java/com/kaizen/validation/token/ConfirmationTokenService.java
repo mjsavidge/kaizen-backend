@@ -1,4 +1,4 @@
-package com.Kaizen.validation.token;
+package com.kaizen.validation.token;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
