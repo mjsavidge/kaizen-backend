@@ -1,6 +1,6 @@
-package service;
+package com.Kaizen.service;
 
-import model.RegistrationModel;
+import com.Kaizen.model.RegistrationModel;
 import org.springframework.stereotype.Service;
 
 @Service

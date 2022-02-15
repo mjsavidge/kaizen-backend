@@ -1,11 +1,11 @@
-package service;
+package com.Kaizen.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import repository.UserRepository;
+import com.Kaizen.repository.UserRepository;
 
 @Service
 @AllArgsConstructor

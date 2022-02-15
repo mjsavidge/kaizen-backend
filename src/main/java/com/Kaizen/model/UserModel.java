@@ -1,4 +1,4 @@
-package model;
+package com.Kaizen.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -17,25 +17,26 @@ import java.util.Collections;
 @EqualsAndHashCode
 @NoArgsConstructor
 @Entity
+@Table(name = "users")
 public class UserModel implements UserDetails {
+
     @Id
-    @SequenceGenerator(
-            name = "user_sequence",
-            sequenceName = "user_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-        strategy = GenerationType.SEQUENCE,
-            generator = "user_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "username")
     private String username;
+    @Column(name = "email")
     private String email;
+    @Column(name = "password")
     private String password;
+    @Column(name = "role")
     @Enumerated(EnumType.STRING)
     private UserRole role;
+    @Column(name = "locked")
     private Boolean locked;
+    @Column(name = "enabled")
     private Boolean enabled;
 
     public UserModel(String name, String username, String email, String password, UserRole role, Boolean locked, Boolean enabled) {
