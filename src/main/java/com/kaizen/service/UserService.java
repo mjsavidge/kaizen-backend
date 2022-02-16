@@ -1,8 +1,7 @@
 package com.kaizen.service;
 
 import com.kaizen.model.UserModel;
-import com.kaizen.validation.token.ConfirmationToken;
-import com.kaizen.validation.token.ConfirmationTokenService;
+import com.kaizen.token.ConfirmationToken;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

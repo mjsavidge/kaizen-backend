@@ -1,4 +1,4 @@
-package com.kaizen.validation.token;
+package com.kaizen.token;
 
 import com.kaizen.model.UserModel;
 import lombok.Getter;
@@ -28,7 +28,7 @@ public class ConfirmationToken {
     private LocalDateTime confirmedAt;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name ="users_id")
+    @JoinColumn(nullable = false, name ="users_model_id")
     private UserModel userModel;
 
     public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiresAt,  UserModel userModel) {

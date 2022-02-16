@@ -1,5 +1,7 @@
-package com.kaizen.validation.token;
+package com.kaizen.service;
 
+import com.kaizen.repository.ConfirmationTokenRepository;
+import com.kaizen.token.ConfirmationToken;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
