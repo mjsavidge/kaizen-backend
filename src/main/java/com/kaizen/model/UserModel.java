@@ -16,7 +16,7 @@ import java.util.Collections;
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
-@Entity(name = "users")
+@Entity
 @Table(name = "users")
 public class UserModel implements UserDetails {
 
@@ -27,7 +27,7 @@ public class UserModel implements UserDetails {
     private String name;
     @Column(name = "username")
     private String username;
-    @Column(name = "com/kaizen/email")
+    @Column(name = "email")
     private String email;
     @Column(name = "password")
     private String password;

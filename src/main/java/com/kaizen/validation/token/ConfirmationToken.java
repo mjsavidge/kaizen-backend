@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity(name = "confirmation_token")
+@Entity
 @Table(name = "confirmation_token")
 public class ConfirmationToken {
 
