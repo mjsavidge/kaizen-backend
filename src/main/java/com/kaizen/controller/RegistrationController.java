@@ -11,7 +11,7 @@ import com.kaizen.service.RegistrationService;
 @AllArgsConstructor
 public class RegistrationController {
 
-    @Autowired
+
     private final RegistrationService registrationService;
 
     @PostMapping

@@ -27,7 +27,7 @@ public class UserModel implements UserDetails {
     private String name;
     @Column(name = "username")
     private String username;
-    @Column(name = "email")
+    @Column(name = "com/kaizen/email")
     private String email;
     @Column(name = "password")
     private String password;
@@ -83,4 +83,5 @@ public class UserModel implements UserDetails {
     public boolean isEnabled() {
         return enabled;
     }
+
 }

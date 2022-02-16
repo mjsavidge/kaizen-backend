@@ -24,11 +24,11 @@ public class ConfirmationToken {
     private LocalDateTime createdAt;
     @Column(nullable = false, name = "expires")
     private LocalDateTime expiresAt;
-    @Column(nullable = false, name = "confirmed")
+    @Column(name = "confirmed")
     private LocalDateTime confirmedAt;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name ="user_id")
+    @JoinColumn(nullable = false, name ="users_id")
     private UserModel userModel;
 
     public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiresAt,  UserModel userModel) {

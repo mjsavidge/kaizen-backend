@@ -1,6 +1,5 @@
 package com.kaizen.repository;
 
-
 import com.kaizen.model.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -18,6 +17,6 @@ public interface UserRepository extends JpaRepository<UserModel, Long> {
 
     @Transactional
     @Modifying
-    @Query("UPDATE users u " + "SET u.enabled = TRUE WHERE u.email = ?1")
+    @Query("UPDATE users u SET u.enabled = TRUE WHERE u.email = ?1")
     int enableUser(String email);
 }
