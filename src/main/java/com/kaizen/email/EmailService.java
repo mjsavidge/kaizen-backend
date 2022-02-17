@@ -25,12 +25,12 @@ public class EmailService implements  EmailSender{
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "utf-8");
             helper.setText(email, true);
             helper.setTo(to);
-            helper.setSubject("Confirm Your Email");
-            helper.setFrom("support@challengeclash.com");
+            helper.setSubject("Confirm Your Account");
+            helper.setFrom("bluekitewebsolutions@gmail.com");
             mailSender.send(mimeMessage);
         } catch (MessagingException e) {
             LOGGER.error("Failed to send email", e);
-            throw new IllegalStateException("failed to send email", e);
+            throw new IllegalStateException("failed to send email");
         }
     }
 }
