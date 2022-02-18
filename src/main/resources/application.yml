@@ -29,7 +29,7 @@ spring:
           ssl:
             trust: "*"
           auth: true
-          starttls: true
+          starttls:
             enable: true
           connectiontimeout: 5000
           timeout: 3000
