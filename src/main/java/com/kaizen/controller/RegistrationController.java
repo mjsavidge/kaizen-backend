@@ -2,7 +2,6 @@ package com.kaizen.controller;
 
 import lombok.AllArgsConstructor;
 import com.kaizen.model.RegistrationModel;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.kaizen.service.RegistrationService;
 
