@@ -3,7 +3,6 @@ package com.kaizen.service;
 import com.kaizen.model.UserModel;
 import com.kaizen.token.ConfirmationToken;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,13 +17,10 @@ import java.util.UUID;
 @AllArgsConstructor
 public class UserService implements UserDetailsService {
 
-    private final static String USER_NOT_FOUND_MSG = "user with email %s was not found";
+    private static final String USER_NOT_FOUND_MSG = "user with email %s was not found";
 
-    @Autowired
     private final UserRepository userRepository;
-    @Autowired
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    @Autowired
     private final ConfirmationTokenService confirmationTokenService;
 
     @Override
@@ -44,7 +40,6 @@ public class UserService implements UserDetailsService {
 
         userRepository.save(userModel);
 
-        // TODO: send confirmation token
         String token = UUID.randomUUID().toString();
         ConfirmationToken confirmationToken = new ConfirmationToken(
             token, LocalDateTime.now(), LocalDateTime.now().plusMinutes(15), userModel
@@ -52,11 +47,10 @@ public class UserService implements UserDetailsService {
 
         confirmationTokenService.saveConfirmationToken(confirmationToken);
 
-        // TODO: send email
         return token;
     }
 
-
+    @SuppressWarnings("UnusedReturnValue")
     public int enableUser(String email){
         return userRepository.enableUser(email);
     }
