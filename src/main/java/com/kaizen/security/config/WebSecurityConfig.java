@@ -1,8 +1,10 @@
 package com.kaizen.security.config;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,12 +18,14 @@ import com.kaizen.service.UserService;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+
+
     private final UserService userService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
-        http.csrf().disable().authorizeRequests().antMatchers("/api/v*/registration/**")
+        http.csrf().disable().authorizeRequests().antMatchers("/api/v1/**")
                 .permitAll().anyRequest().authenticated().and().formLogin();
     }
 
@@ -37,4 +41,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         provider.setUserDetailsService(userService);
         return provider;
     }
+
 }
