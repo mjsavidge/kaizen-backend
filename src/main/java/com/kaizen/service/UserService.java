@@ -24,9 +24,14 @@ public class UserService implements UserDetailsService {
     private final ConfirmationTokenService confirmationTokenService;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return userRepository.findByEmail(email).orElseThrow(()
-                -> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
+    public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
+        UserModel userModel =  userRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail).orElseThrow(()
+                -> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, usernameOrEmail)));
+        return new org.springframework.security.core.userdetails.User(
+                userModel.getEmail(),
+                userModel.getPassword(),
+                userModel.getAuthorities()
+        );
     }
 
     public String signUpUser(UserModel userModel){

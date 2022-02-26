@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import com.kaizen.service.RegistrationService;
 
@@ -32,11 +33,11 @@ public class RegistrationController {
         return registrationService.confirmToken(token);
     }
 
-    @PostMapping("signin")
+    @PostMapping("signIn")
     public ResponseEntity<String> authUser(@RequestBody LogInModel logInModel){
         Authentication auth = daoAuthenticationProvider.authenticate(new UsernamePasswordAuthenticationToken(
                 logInModel.getUsernameOrEmail(), logInModel.getPassword()));
-
-        return new ResponseEntity<>("OK", HttpStatus.OK);
+        SecurityContextHolder.getContext().setAuthentication(auth);
+        return new ResponseEntity<>("Sign in successful", HttpStatus.OK);
     }
 }
